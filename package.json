@@ -1,0 +1,26 @@
+{
+  "name": "pokedex-api",
+  "version": "1.0.0",
+  "description": "api for pokedex web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/njdiazsoler/pokedex-api.git"
+  },
+  "keywords": [
+    "pokedex",
+    "api"
+  ],
+  "author": "njdiazsoler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/njdiazsoler/pokedex-api/issues"
+  },
+  "homepage": "https://github.com/njdiazsoler/pokedex-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
