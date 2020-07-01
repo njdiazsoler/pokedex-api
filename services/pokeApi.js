@@ -11,7 +11,7 @@ const options = {
 
 const makeApiCall = (path) => {
   console.log(path);
-  options.path = path;
+  options.path = `/api/v2/pokemon${path}`;
   return new Promise((resolve, reject) => {
     const req = https.request(options, (res) => {
       res.setEncoding('utf8');
@@ -36,12 +36,12 @@ const makeApiCall = (path) => {
 };
 
 const getOnePokemonByName = async (name) => {
-  const data = await makeApiCall(`/api/v2/pokemon/${name}`);
+  const data = await makeApiCall(`/${name}`);
   return data;
 };
 
 const getAllPokemon = async (limit, offset) => {
-  const data = await makeApiCall(`/api/v2/pokemon?limit=${limit}&offset=${offset}`);
+  const data = await makeApiCall(`?limit=${limit}&offset=${offset}`);
   console.log('returning!')
   return data;
 };
