@@ -1,24 +1,3 @@
-// const Pokedex = require('pokedex-promise-v2');
-// const pokedex = new Pokedex();
-
-// const getOnePokemonByName = async (name) => {
-//   const singlePokemonData = await pokedex.getPokemonByName(name);
-//   return singlePokemonData
-// };
-
-// const getAllPokemon = async (options) => {
-// // library endpoint is broken
-// // const allPokemonData = await pokedex.getPokemonsList(options)
-// console.log('request!')
-// const allPokemonData = await pokedex.resource('/api/v2/pokemon/');
-// return allPokemonData;
-// }
-
-// export default {
-//   getOnePokemonByName,
-//   getAllPokemon,
-// }
-
 import https from 'https';
 import config from '../config';
 
@@ -30,7 +9,7 @@ const options = {
   },
 };
 
-const consumirApi = (path) => {
+const makeApiCall = (path) => {
   console.log(path);
   options.path = path;
   return new Promise((resolve, reject) => {
@@ -57,12 +36,12 @@ const consumirApi = (path) => {
 };
 
 const getOnePokemonByName = async (name) => {
-  const data = await consumirApi(`/api/v2/pokemon/${name}`);
+  const data = await makeApiCall(`/api/v2/pokemon/${name}`);
   return data;
 };
 
 const getAllPokemon = async (limit, offset) => {
-  const data = await consumirApi(`/api/v2/pokemon?limit=${limit}&offset=${offset}`);
+  const data = await makeApiCall(`/api/v2/pokemon?limit=${limit}&offset=${offset}`);
   console.log('returning!')
   return data;
 };
