@@ -10,7 +10,6 @@ const options = {
 };
 
 const makeApiCall = (path) => {
-  console.log(path);
   options.path = `/api/v2/pokemon${path}`;
   return new Promise((resolve, reject) => {
     const req = https.request(options, (res) => {
