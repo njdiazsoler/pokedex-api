@@ -20,11 +20,11 @@ const makeApiCall = (path) => {
         response += responseData;
       });
       res.on('end', () => {
-        const jsonResponse = JSON.parse(response);
-        if (jsonResponse) {
+        if (response !== 'Not Found') {
+          const jsonResponse = JSON.parse(response);
           resolve(jsonResponse);
         } else {
-          reject(jsonResponse);
+          reject(response);
         }
       });
     });
@@ -42,7 +42,6 @@ const getOnePokemonByName = async (name) => {
 
 const getAllPokemon = async (limit, offset) => {
   const data = await makeApiCall(`?limit=${limit}&offset=${offset}`);
-  console.log('returning!')
   return data;
 };
 
