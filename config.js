@@ -4,7 +4,7 @@ const config = {
     protocol: 'https',
   },
   server: {
-    port: 3000
+    port: 3001
   }
 }
 
