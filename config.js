@@ -1,7 +1,10 @@
 const config = {
   api: {
     baseUrl: 'pokeapi.co',
-    protocol: 'https'
+    protocol: 'https',
+  },
+  server: {
+    port: 3000
   }
 }
 
