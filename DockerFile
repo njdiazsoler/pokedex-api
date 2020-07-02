@@ -1,0 +1,16 @@
+FROM node:latest
+
+
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY package*.json ./
+
+RUN npm install
+
+
+COPY . .
+
+EXPOSE 3001
+
+CMD [ "npx", "babel-node",  "index.js" ]
