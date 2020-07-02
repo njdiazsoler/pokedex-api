@@ -3,7 +3,7 @@ import PokeApiService from '../services/pokeApi';
 const initializeRoutes = (app) => {
   app.get('/', (req, res) => res.send('Hello World!'));
   app.get('/pokemon', async (req, res, next) => {
-    const { limit, offset } = req.params;
+    const { limit, offset } = req.query;
     const options = {
       limit: limit || 20,
       offset: offset || 0,
