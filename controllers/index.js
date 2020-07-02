@@ -23,6 +23,17 @@ const initializeRoutes = (app) => {
     }
   });
 
+  app.get('/pokemon/search', async (req, res, next) => {
+    const keyword = req.query.keyword.toLowerCase();
+    try{
+      const searchResults = await PokeApiService.getPokemonByKeyword(keyword);
+      res.sendData(searchResults);
+    }catch(err){
+      console.error(err);
+      next(err);
+    }
+  });
+
   app.get('/pokemon/:name', async (req, res, next) => {
     const { name } = req.params;
     try {
