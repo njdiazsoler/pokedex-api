@@ -7,9 +7,9 @@ const server = supertest(app);
 describe('/pokemon endpoint tests', () => {
   test('works with promises', async (done) => {
       expect.assertions(1);
-      const apiData = await server.get('/pokemon/').expect(200);
+      const apiData = await server.get('/pokemon/');
       const response = JSON.parse(apiData.text);
-      await expect(response.data.results.length).toEqual(20);
+      await expect(response.data.result.length).toEqual(20);
       done();
   });
 })
