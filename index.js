@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import Controllers from './controllers/index';
+import config from './config';
 
 const app = express();
-const port = 3000;
 
 // Enable CORS
 const corsOptions = {
@@ -58,4 +58,6 @@ app.use((err, req, res, next) => {
   res.status(errorResponse.status).send(errorResponse);
 });
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.listen(config.server.port, () => console.log(`Example app listening at http://localhost:${config.server.port}`));
+
+export default app;
